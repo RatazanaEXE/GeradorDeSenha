@@ -32,7 +32,9 @@ public class GeradorDeSenha extends Application {
     @Override
     public void start(Stage palco) {
 
-        Label etiquetaSenha = new Label("Digite o comprimento da senha");
+        TextField etiquetaSenha = new TextField();
+        etiquetaSenha.setPromptText("Sua senha aparecerá aqui");
+        etiquetaSenha.setEditable(false);
 
         TextField campoComprimento = new TextField();
         campoComprimento.setPromptText("Digite o comprimento");
@@ -48,10 +50,11 @@ public class GeradorDeSenha extends Application {
             etiquetaSenha.setText(senha);
         });
 
+
         VBox layout = new VBox(10, etiquetaSenha, campoComprimento, gerarSenha);
 
         Scene cena = new Scene(layout, 300, 200);
-
+        cena.getStylesheets().add("style.css");
         palco.setTitle("Gerador de Senha");
         palco.setScene(cena);
         palco.show();
